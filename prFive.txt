@@ -1,0 +1,13 @@
+g++ -c -o main.o -fPIC main.cpp
+g++ -c -o arrayLib.o -fPIC arrayLib.cpp
+g++ -c -o matrixLib.o -fPIC matrixLib.cpp
+g++ -c -o loadLib.o loadLib.cpp 
+
+g++ -shared -o arrayLib.dll arrayLib.o
+g++ -shared -o matrixLib.dll matrixLib.o
+g++.exe -shared -o loadLib.dll loadLib.o
+
+g++.exe -c -fPIC main.cpp 
+
+g++.exe -c -fPIC loadLib.cpp
+g++.exe -o main.exe main.o -L./ -lloadLib
